@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>movie ticket booking</title>
+</head>
+<body>
+    <div class="movie-container">
+    <label>pick a movie</label>
+ <select id="movie">
+    <option value="10">Avenger:value($10)</option>
+    <option value="12">jocker($12)</option>
+    <option value="8">toy story 4($8)</option>
+    <option value="9">Avengers:Endgame($9)</option>
+</select>
+</div>
+
+
+<ul class="showcase">
+<li>
+    <div class="seat "></div>
+    <small>N/A</small>
+</li>
+<li>
+    <div class="seat selected"></div>
+    <small>selected</small>
+</li>
+<li>
+    <div class="seat occupied"></div>
+    <small>occupied</small>
+</li>
+
+</ul>
+<div class="container">
+<div class="screen show"></div>
+<div class="row">
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat occupied"></div>
+<div class="seat"></div>
+<div class="seat occupied"></div>
+<div class="seat occupied"></div>
+<div class="seat occupied"></div>
+<div class="seat"></div>
+</div>
+<div class="row">
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat occupied"></div>
+<div class="seat"></div>
+<div class="seat occupied"></div>
+<div class="seat"></div>
+<div class="seat occupied"></div>
+<div class="seat"></div>
+</div>
+
+<div class="row">
+<div class="seat"></div>
+<div class="seat occupied"></div>
+<div class="seat"></div>
+<div class="seat occupied"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat occupied"></div>
+<div class="seat occupied"></div>
+</div>
+<div class="row">
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat occupied"></div>
+<div class="seat occupied"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat occupied"></div>
+<div class="seat occupied"></div>
+ </div>
+<div class="row">
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat occupied"></div>
+<div class="seat occupied"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat occupied"></div>
+ <div class="seat occupied"></div>
+</div>
+<div class="row">
+<div class="seat"></div>
+<div class="seat occupied"></div>
+<div class="seat"></div>
+<div class="seat occupied"></div>
+<div class="seat occupied"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat occupied"></div>
+</div>
+</div>
+<p id="text"> you have selected <span id="count">0</span> seats for a price of $ <span id="total">0</span> </p>
+<script>
+const container = document.querySelector('.container');
+const seats = document.querySelectorAll('.row.seat:not(.occupied)');
+const count = document.getElementById('count');
+
+const total = document.getElementById('total');
+const movieSelect = document.getElementById('movie');
+
+let ticketprice = +movieSelect.value;
+
+console.log(ticketprice);
+function updateSelectedCount(){
+ 
+    const selectedSeats = document.querySelectorAll('.row.seat.selected');
+    console.log(selectedSeats);
+    //const seatsindex = {...selectedSeats};
+   // console.log(seatsindex);
+   const selectedSeatsCount = selectedSeats.length;
+   console.log(selectedSeatsCount);
+
+}
+container.addEventListener('click',(e)=>{
+  if(e.target.classList.contains('seat')&&!e.target.classList.contains('occupied') ){
+   
+  // debugger;
+   console.log( e.target.classList.toggle('selected'));
+   console.log(e.target.className);
+  
+  }
+  
+   updateSelectedCount();
+
+
+});
+
+</script>
+
+</body>
+</html>
